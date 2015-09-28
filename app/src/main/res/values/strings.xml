@@ -1,0 +1,17 @@
+<resources>
+<string name="app_name">Popular Movies</string>
+<string name="hello_world">Hello world!</string>
+<string name="action_settings">Settings</string>
+<string name="most_popular">Most Popular</string>
+<string name="high_rated">Highest Rated</string>
+<string name="sort_key" translatable="false">sort_key</string>
+<string name="sort_title">Change Sort Order</string>
+<string name="sort_default" translatable="false">popularity.desc</string>
+<string name="sort_high_rate" translatable="false">vote_average.desc</string>
+<string name="title_activity_settings">Settings</string>
+<string name="sort_pref_label">Default Sort Order</string>
+<string name="requery_data_key" translatable="false">requery_data_key</string>
+<string name="movie_details_label">Movie Details</string>
+<string name="poster">Movie poster thumbnail</string>
+
+</resources>
