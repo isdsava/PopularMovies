@@ -7,29 +7,37 @@ package au.com.fintechapps.popularmovies;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import java.sql.Blob;
+
 
 /*
 Simple object to hold the movie data and parcelable so it can be used with intents
  */
 public class Movie implements Parcelable{
 
-
-    public String movieName;
-    public String movieSynopis;
-    public String userRating;
+    public int movieId;
+    public int movieDbId;
+    public String originalTitle;
+    public String overView;
     public String releaseDate;
     public String posterPath;
-    public String voteCount;
+    public double popularity;
+    public String title;
+    public double voteAverage;
+    public int voteCount;
 
-    //Not going to worry about numbers as strings. We are not perfoming any operations on the data
-    // so worrying about number validation isnt required.
-    public Movie(String movieName,String movieSynopis,String userRating,String releaseDate,String posterPath,String voteCount) {
 
-        this.movieName = movieName;
-        this.movieSynopis = movieSynopis;
-        this.userRating = userRating;
-        this.releaseDate= releaseDate;
+    public Movie(int movieId,int movieDbId,String originalTitle,String overView,String releaseDate,String posterPath,double popularity,String title,double voteAverage, int voteCount) {
+
+        this.movieId = movieId;
+        this.movieDbId = movieDbId;
+        this.originalTitle =originalTitle;
+        this.overView =overView;
+        this.releaseDate =releaseDate;
         this.posterPath = posterPath;
+        this.popularity = popularity;
+        this.title = title;
+        this.voteAverage = voteAverage;
         this.voteCount = voteCount;
     }
 
@@ -38,12 +46,16 @@ public class Movie implements Parcelable{
     }
 
     private Movie(Parcel in){
-        movieName = in.readString();
-        movieSynopis = in.readString();
-        userRating = in.readString();
+        movieId = in.readInt();
+        movieDbId = in.readInt();
+        originalTitle = in.readString();
+        overView = in.readString();
         releaseDate = in.readString();
         posterPath = in.readString();
-        voteCount = in.readString();
+        popularity = in.readDouble();
+        title = in.readString();
+        voteAverage = in.readDouble();
+        voteCount = in.readInt();
     }
 
     @Override
@@ -51,16 +63,20 @@ public class Movie implements Parcelable{
         return 0;
     }
 
-    public String toString() {return posterPath + "--" + movieName;}
+    public String toString() {return posterPath + "--" +title;}
 
     @Override
     public void writeToParcel(Parcel parcel,int i){
-        parcel.writeString(movieName);
-        parcel.writeString(movieSynopis);
-        parcel.writeString(userRating);
+        parcel.writeInt(movieId);
+        parcel.writeInt(movieDbId);
+        parcel.writeString(originalTitle);
+        parcel.writeString(overView);
         parcel.writeString(releaseDate);
         parcel.writeString(posterPath);
-        parcel.writeString(voteCount);
+        parcel.writeDouble(popularity);
+        parcel.writeString(title);
+        parcel.writeDouble(voteAverage);
+        parcel.writeInt(voteCount);
     }
 
     public static Parcelable.Creator<Movie> CREATOR = new Parcelable.Creator<Movie>(){

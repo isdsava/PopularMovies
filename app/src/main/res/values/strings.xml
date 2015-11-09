@@ -1,17 +1,34 @@
 <resources>
-<string name="app_name">Popular Movies</string>
-<string name="hello_world">Hello world!</string>
-<string name="action_settings">Settings</string>
-<string name="most_popular">Most Popular</string>
-<string name="high_rated">Highest Rated</string>
-<string name="sort_key" translatable="false">sort_key</string>
-<string name="sort_title">Change Sort Order</string>
-<string name="sort_default" translatable="false">popularity.desc</string>
-<string name="sort_high_rate" translatable="false">vote_average.desc</string>
-<string name="title_activity_settings">Settings</string>
-<string name="sort_pref_label">Default Sort Order</string>
-<string name="requery_data_key" translatable="false">requery_data_key</string>
-<string name="movie_details_label">Movie Details</string>
-<string name="poster">Movie poster thumbnail</string>
+    <string name="app_name">Popular Movies</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="most_popular">Most Popular</string>
+    <string name="high_rated">Highest Rated</string>
+    <string name="my_fav">My Favourites</string>
+    <string name="sort_key" translatable="false">sort_key</string>
+    <string name="sort_title">Change Sort Order</string>
+    <string name="sort_default" translatable="false">popularity.desc</string>
+    <string name="sort_high_rate" translatable="false">vote_average.desc</string>
+    <string name="sort_fav" translatable="false">favourites</string>
+    <string name="title_activity_settings">Settings</string>
+    <string name="sort_pref_label">Default Sort Order</string>
+    <string name="requery_data_key" translatable="false">requery_data_key</string>
+    <string name="movie_details_label">Movie Details</string>
+    <string name="poster">Movie poster thumbnail</string>
+    <string name="reviews">REVIEWS</string>
+    <string name="trailers">TRAILERS</string>
+    <string name="action_share">Share</string>
+
+    <string name="pref_enable_notifications_key" translatable="false">enable_notifications</string>
+    <string name="pref_enable_notifications_label">Movie Notifications</string>
+
+    <string name="pref_enable_notifications_true">Enabled</string>
+    <string name="pref_enable_notifications_false">Not Enabled</string>
+    <string name="pref_enable_notifications_default" translatable="false">true</string>
+
+    <!-- Account type (for sync-adapter authenticator) -->
+    <!-- SyncAdapter related -->
+    <string name="sync_account_type">fintechapps.com.au</string>
+    <string name="content_authority">au.com.fintechapps.popularmovies.content.MovieProvider</string>
 
 </resources>

@@ -4,6 +4,16 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
 
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <!-- Permissions required by the sync adapter -->
+    <uses-permission
+        android:name="android.permission.READ_SYNC_SETTINGS"/>
+    <uses-permission
+        android:name="android.permission.WRITE_SYNC_SETTINGS"/>
+    <uses-permission
+        android:name="android.permission.AUTHENTICATE_ACCOUNTS"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -14,10 +24,10 @@
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
 
         <activity
             android:name=".SettingsActivity"
@@ -28,6 +38,7 @@
                 android:value="au.com.fintechapps.popularmovies.MainActivity" />
         </activity>
 
+
         <activity
             android:name=".MovieDetailActivity"
             android:label="@string/movie_details_label"
@@ -36,6 +47,38 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="au.com.fintechapps.popularmovies.MainActivity" />
         </activity>
+
+        <!-- SyncAdapter's dummy authentication service -->
+        <service
+            android:name="au.com.fintechapps.popularmovies.sync.PopularMoviesAuthenticatorService"
+            >
+            <intent-filter>
+                <action android:name="android.accounts.AccountAuthenticator" />
+            </intent-filter>
+            <meta-data
+                android:name="android.accounts.AccountAuthenticator"
+                android:resource="@xml/authenticator" />
+        </service>
+
+        <provider
+            android:authorities="au.com.fintechapps.popularmovies.content.MovieProvider"
+            android:name="au.com.fintechapps.popularmovies.content.generated.MovieProvider"
+            android:exported="true"
+            android:syncable="true"
+            android:label="popular_movies"/>
+
+        <!-- The SyncAdapter service -->
+        <service
+            android:name="au.com.fintechapps.popularmovies.sync.PopularMoviesSyncService"
+            android:exported="true"
+            >
+            <intent-filter>
+                <action android:name="android.content.SyncAdapter" />
+            </intent-filter>
+            <meta-data
+                android:name="android.content.SyncAdapter"
+                android:resource="@xml/syncadapter" />
+        </service>
 
     </application>
 

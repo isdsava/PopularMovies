@@ -1,5 +1,6 @@
 package au.com.fintechapps.popularmovies;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.Preference;
@@ -54,12 +55,22 @@ public class SettingsActivity extends PreferenceActivity
 
     }
 
-//Key to decide if we requery that data or just use the objects stored in the view tag.
+    //Key to decide if we requery that data or just use the objects stored in the view tag.
     public void setRequeryDataFlag() {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         SharedPreferences.Editor edit = prefs.edit();
         edit.putBoolean(getString(R.string.requery_data_key), true);
         edit.apply();
+    }
+
+    public void onBackPressed() {
+        // TODO Auto-generated method stub
+        //super.onBackPressed();
+        //Toast.makeText(getApplicationContext(), "click",2000).show();
+        String cameback="CameBack";
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.putExtra("Comingback", cameback);
+        startActivity(intent);
     }
 }
 

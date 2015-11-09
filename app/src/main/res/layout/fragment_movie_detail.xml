@@ -24,15 +24,18 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:contentDescription="@string/poster"
-                android:padding="12dp" />
+                android:src="@drawable/place_holder"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                                />
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:orientation="vertical"
-                android:paddingLeft="24dp"
-                android:paddingTop="55dp">
+                android:paddingLeft="10dp"
+                android:paddingTop="55dp" >
 
                 <TextView
                     android:id="@+id/movie_date_detail"
@@ -40,16 +43,16 @@
                     android:textSize="24sp" />
 
                 <TextView
-                    android:id="@+id/movie_duration_detail"
-                    style="@style/TextMid"
-                    android:textSize="16sp"
-                    android:textStyle="italic" />
-
-                <TextView
                     android:id="@+id/movie_votes_detail"
                     style="@style/TextMid"
                     android:textSize="14sp"
                     android:textStyle="italic" />
+                android:textStyle="italic" />
+                <Button
+                    android:id="@+id/button_fav"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Favourite"/>
             </LinearLayout>
 
         </LinearLayout>
@@ -61,8 +64,48 @@
             android:layout_below="@+id/linear_1"
             android:background="@color/light_blue"
             android:padding="12dp"
-            android:textColor="@color/white" />
+            android:textColor="@color/white"
+            android:textSize="14sp"/>
 
+        <LinearLayout
+            android:id="@+id/linear_bottom"
+            android:layout_below="@+id/movie_plot_detail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                style="@style/TextMid"
+                android:textSize="24sp"
+                android:text="@string/reviews"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/linear_bottom_two"
+            android:layout_below="@+id/linear_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/TextMid"
+                android:textSize="24sp"
+                android:text="@string/trailers"/>
+
+        </LinearLayout>
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:visibility="gone"
+            android:indeterminate="true"
+            >
+        </ProgressBar>
 
     </RelativeLayout>
+
+
 </ScrollView>
